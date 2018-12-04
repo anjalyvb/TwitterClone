@@ -19,7 +19,7 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Dashboard", "Login", new { query = Model.LoggedInUserId }, new { @class = "navbar-brand" })</li>
-                    <li>@Html.ActionLink("Profile", "Profile", "Login", new { query = Model.LoggedInUserId })</li>
+                    <li>@Html.ActionLink("Profile", "UserProfile", "Login", new { query = Model.LoggedInUserId })</li>
                     <li>@Html.ActionLink("Signout", "Signout", "Login")</li>                   
                 </ul>
             </div>

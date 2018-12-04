@@ -137,5 +137,16 @@ namespace TwitterClone.Controllers
             return list;
         }
 
+        public ActionResult UserProfile(string query)
+        {
+            return View();
+        }
+
+        public ActionResult SignOut()
+        {
+            FormsAuthentication.SignOut();
+            return View();
+        }
+
     }
 }
