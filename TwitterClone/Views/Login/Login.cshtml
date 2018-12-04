@@ -1,0 +1,52 @@
+﻿@model TwitterClone.Models.Person
+@{
+    ViewBag.Title = "Login on Twitter Clone";
+}
+
+<div class="jumbotron">
+    <div class="row">
+        <div class="col4">
+            <h2>Log into Twitter Clone</h2>
+        </div>
+    </div>
+    @if (!string.IsNullOrEmpty(ViewBag.Error))
+    {
+        <div class="row">
+            <div class="col">
+                <div class="alert alert-danger">@ViewBag.Error</div>
+            </div>
+        </div>
+    }
+
+    <div class="row">
+        <div class="col4">
+            @using (Html.BeginForm("SignIn", "Login", FormMethod.Post, new { @id = "loginForm", @class = "form-horizontal" }))
+            {
+                <div class="form-group">
+                    <div class="col-sm-10">
+                        @Html.TextBoxFor(m => m.UserId, new { @class = "form-control ", placeholder = "Username" })
+                        @Html.ValidationMessageFor(m => m.UserId)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-10">
+                        @Html.TextBoxFor(m => m.PasswordHash, new { @class = "form-control ", placeholder = "Password", @type = "password" })
+                        @Html.ValidationMessageFor(m => m.PasswordHash)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-10">
+                        <button class="btn btn-info" type="submit">Login</button>
+                    </div>
+                </div>
+
+            }
+        </div>
+    </div>
+    <div class="row">
+        <div class="col4">
+            New to Twitter Clone? @Html.ActionLink("Sign Up now >>", "SignUp", "Login", new { @class="btn btn-link" })
+        </div>
+    </div>
+</div>
+
